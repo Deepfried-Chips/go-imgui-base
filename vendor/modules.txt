@@ -1,0 +1,11 @@
+# github.com/davecgh/go-spew v1.1.1
+## explicit
+# github.com/inkyblackness/imgui-go/v4 v4.6.0
+## explicit; go 1.13
+github.com/inkyblackness/imgui-go/v4
+github.com/inkyblackness/imgui-go/v4/imgui
+github.com/inkyblackness/imgui-go/v4/imgui/misc/freetype
+github.com/inkyblackness/imgui-go/v4/wrapper
+# github.com/veandco/go-sdl2 v0.4.27
+## explicit; go 1.15
+github.com/veandco/go-sdl2/sdl
