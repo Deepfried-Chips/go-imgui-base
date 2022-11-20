@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"runtime"
 
-	imgui "github.com/inkyblackness/imgui-go/v4"
+	"github.com/inkyblackness/imgui-go/v4"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
 // SDLClientAPI identifies the render system that shall be initialized.
 type SDLClientAPI string
 
-// This is a list of SDLClientAPI constants.
+// SDLClientAPIOpenGL3 This is a list of SDLClientAPI constants.
 const (
 	SDLClientAPIOpenGL3 SDLClientAPI = "OpenGL3"
 )

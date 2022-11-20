@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/Deepfried-Chips/go-imgui-base/platforms"
 	"github.com/Deepfried-Chips/go-imgui-base/renderers"
-	imgui "github.com/inkyblackness/imgui-go/v4"
+	"github.com/inkyblackness/imgui-go/v4"
 	"os"
 	"time"
 )
@@ -61,6 +61,8 @@ func main() {
 		os.Exit(-1)
 	}
 	defer renderer.Dispose()
+
+	imgui.CurrentIO().SetClipboard(clipboard{platform})
 
 	for !platform.ShouldStop() {
 		platform.ProcessEvents()
