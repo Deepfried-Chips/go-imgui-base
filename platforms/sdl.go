@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/inkyblackness/imgui-go/v4"
+	imgui "github.com/inkyblackness/imgui-go/v4"
 	"github.com/veandco/go-sdl2/sdl"
 )
 
@@ -20,7 +20,7 @@ const (
 type SDL struct {
 	imguiIO imgui.IO
 
-	window     *sdl.Window
+	Window     *sdl.Window
 	shouldStop bool
 
 	time        uint64
@@ -45,7 +45,7 @@ func NewSDL(io imgui.IO, clientAPI SDLClientAPI) (*SDL, error) {
 
 	platform := &SDL{
 		imguiIO: io,
-		window:  window,
+		Window:  window,
 	}
 	platform.setKeyMapping()
 
@@ -81,9 +81,9 @@ func NewSDL(io imgui.IO, clientAPI SDLClientAPI) (*SDL, error) {
 
 // Dispose cleans up the resources.
 func (platform *SDL) Dispose() {
-	if platform.window != nil {
-		_ = platform.window.Destroy()
-		platform.window = nil
+	if platform.Window != nil {
+		_ = platform.Window.Destroy()
+		platform.Window = nil
 	}
 	sdl.Quit()
 }
@@ -102,13 +102,13 @@ func (platform *SDL) ProcessEvents() {
 
 // DisplaySize returns the dimension of the display.
 func (platform *SDL) DisplaySize() [2]float32 {
-	w, h := platform.window.GetSize()
+	w, h := platform.Window.GetSize()
 	return [2]float32{float32(w), float32(h)}
 }
 
 // FramebufferSize returns the dimension of the framebuffer.
 func (platform *SDL) FramebufferSize() [2]float32 {
-	w, h := platform.window.GLGetDrawableSize()
+	w, h := platform.Window.GLGetDrawableSize()
 	return [2]float32{float32(w), float32(h)}
 }
 
@@ -140,7 +140,7 @@ func (platform *SDL) NewFrame() {
 
 // PostRender performs a buffer swap.
 func (platform *SDL) PostRender() {
-	platform.window.GLSwap()
+	platform.Window.GLSwap()
 }
 
 func (platform *SDL) setKeyMapping() {
